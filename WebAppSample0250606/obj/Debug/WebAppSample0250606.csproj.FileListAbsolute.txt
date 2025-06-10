@@ -93,3 +93,12 @@ C:\Users\Administrator\source\repos\WebAppSample0250606\WebAppSample0250606\obj\
 C:\Users\Administrator\source\repos\WebAppSample0250606\WebAppSample0250606\obj\Debug\WebAppSa.912CF24A.Up2Date
 C:\Users\Administrator\source\repos\WebAppSample0250606\WebAppSample0250606\obj\Debug\WebAppSample0250606.dll
 C:\Users\Administrator\source\repos\WebAppSample0250606\WebAppSample0250606\obj\Debug\WebAppSample0250606.pdb
+C:\Users\Administrator\source\repos\WebAppSample0250606\WebAppSample0250606\bin\EntityFramework.dll
+C:\Users\Administrator\source\repos\WebAppSample0250606\WebAppSample0250606\bin\EntityFramework.SqlServer.dll
+C:\Users\Administrator\source\repos\WebAppSample0250606\WebAppSample0250606\bin\EntityFramework.xml
+C:\Users\Administrator\source\repos\WebAppSample0250606\WebAppSample0250606\bin\EntityFramework.SqlServer.xml
+C:\Users\Administrator\source\repos\WebAppSample0250606\WebAppSample0250606\obj\Debug\WebAppSample0250606.Migrations.InitialCreate.resources
+C:\Users\Administrator\source\repos\WebAppSample0250606\WebAppSample0250606\obj\Debug\WebAppSample0250606.csproj.GenerateResource.cache
+C:\Users\Administrator\source\repos\WebAppSample0250606\WebAppSample0250606\obj\Debug\WebAppSample0250606.Migrations.addAssetTable.resources
+C:\Users\Administrator\source\repos\WebAppSample0250606\WebAppSample0250606\obj\Debug\WebAppSample0250606.Migrations.addUserTable.resources
+C:\Users\Administrator\source\repos\WebAppSample0250606\WebAppSample0250606\obj\Debug\WebAppSample0250606.Migrations.addUserTable1.resources

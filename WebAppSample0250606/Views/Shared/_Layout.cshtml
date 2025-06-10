@@ -1,12 +1,16 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - 我的 ASP.NET 應用程式</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+
+    @{
+        var UserID = ViewBag.UserID;
+    }
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
@@ -19,8 +23,16 @@
             <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
                 <ul class="navbar-nav flex-grow-1">
                     <li>@Html.ActionLink("首頁", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("關於", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("連絡人", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    @*<li>@Html.ActionLink("關於", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+        <li>@Html.ActionLink("連絡人", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>*@
+                    <li>@Html.ActionLink("看房", "Index", "Assets", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("紀錄", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("管理", "Index", "Users", new { area = "" }, new { @class = "nav-link" })</li>
+                </ul>
+                <ul class="navbar-nav flex-grow-1">
+                    <li>@Html.ActionLink("登入", "Login", "Users", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("註冊", "Create", "Users", new { area = "" }, new { @class = "nav-link" })</li>
+                    <li id="logout">@Html.ActionLink("登出", "Create", "Users", new { area = "" }, new { @class = "nav-link" })</li>
                 </ul>
             </div>
         </div>

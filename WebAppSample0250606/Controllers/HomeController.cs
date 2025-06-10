@@ -26,5 +26,38 @@ namespace WebAppSample0250606.Controllers
 
             return View();
         }
+
+
+        public ActionResult Asset()
+        {
+            return View();
+        }
+
+        public ActionResult Record()
+        {
+            return View();
+        }
+
+        public ActionResult Admin()
+        {
+            return View();
+        }
+
+
+        public ActionResult addAsset()
+        {
+            return View();
+        }
+
+        public ActionResult getAsset()
+        {
+            return View();
+        }
+
+        public ActionResult updatePic()
+        {
+            return View();
+        }
+
     }
 }
