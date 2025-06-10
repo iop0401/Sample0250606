@@ -20,6 +20,38 @@ namespace WebAppSample0250606.Controllers
             return View(db.Users.ToList());
         }
 
+        // GET: Users/Login
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(FormCollection obj)
+        {
+            ViewBag.UserName = obj["UserName"];
+            ViewBag.Password = obj["Password"];
+
+
+            string username = obj["UserName"];
+            var users = from m in db.Users
+                         select m;
+            if (!String.IsNullOrEmpty(username))
+            {
+                users = users.Where(s => s.UserName.Equals(username));
+            }
+            if (users.First().UserID > 0)
+            {
+                ViewBag.LoginID = users.First().UserID;
+            }
+            else
+            {
+                return View();
+            }
+
+            return RedirectToAction("Index", "Home");
+        }
+
         // GET: Users/Details/5
         public ActionResult Details(int? id)
         {
@@ -50,6 +82,7 @@ namespace WebAppSample0250606.Controllers
         {
             if (ModelState.IsValid)
             {
+                user.Priorty = 1;
                 db.Users.Add(user);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -78,7 +111,7 @@ namespace WebAppSample0250606.Controllers
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "UserID,UserName,Password")] User user)
+        public ActionResult Edit([Bind(Include = "UserID,UserName,Password,Priorty")] User user)
         {
             if (ModelState.IsValid)
             {

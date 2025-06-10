@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -11,17 +10,17 @@ using WebAppSample0250606.Models;
 
 namespace WebAppSample0250606.Controllers
 {
-    public class AssetsController : Controller
+    public class RecordsController : Controller
     {
         private EstateDBContext db = new EstateDBContext();
 
-        // GET: Assets
+        // GET: Records
         public ActionResult Index()
         {
             return View(db.Assets.ToList());
         }
 
-        // GET: Assets/Details/5
+        // GET: Records/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,23 +35,21 @@ namespace WebAppSample0250606.Controllers
             return View(asset);
         }
 
-        // GET: Assets/Create
+        // GET: Records/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Assets/Create
+        // POST: Records/Create
         // 若要避免過量張貼攻擊，請啟用您要繫結的特定屬性。
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AssetID,UserID,Title,Address,Desc")] Asset asset)
+        public ActionResult Create([Bind(Include = "AssetID,UserID,Title,Address,Desc,Image")] Asset asset)
         {
             if (ModelState.IsValid)
             {
-
-
                 db.Assets.Add(asset);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -61,7 +58,7 @@ namespace WebAppSample0250606.Controllers
             return View(asset);
         }
 
-        // GET: Assets/Edit/5
+        // GET: Records/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -76,12 +73,12 @@ namespace WebAppSample0250606.Controllers
             return View(asset);
         }
 
-        // POST: Assets/Edit/5
+        // POST: Records/Edit/5
         // 若要避免過量張貼攻擊，請啟用您要繫結的特定屬性。
         // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AssetID,UserID,Title,Address,Desc")] Asset asset)
+        public ActionResult Edit([Bind(Include = "AssetID,UserID,Title,Address,Desc,Image")] Asset asset)
         {
             if (ModelState.IsValid)
             {
@@ -92,7 +89,7 @@ namespace WebAppSample0250606.Controllers
             return View(asset);
         }
 
-        // GET: Assets/Delete/5
+        // GET: Records/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -107,7 +104,7 @@ namespace WebAppSample0250606.Controllers
             return View(asset);
         }
 
-        // POST: Assets/Delete/5
+        // POST: Records/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -125,25 +122,6 @@ namespace WebAppSample0250606.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
-
-
-        [HttpPost]
-        public void ImageUpload(HttpPostedFileBase file)
-        {
-
-            if (file != null)
-            {
-                string filePath = Server.MapPath("~/App_Data/Images/") + file.FileName;
-                file.SaveAs(filePath);
-                //return Content("<script>alert('上傳成功！');location.href='" + Url.Content("~/uploadfiles") + "'</script>");
-            }
-            //return View("Index");
-        }
-
-        public ActionResult GetImage(int id)
-        {
-            return View();
         }
     }
 }

@@ -9,13 +9,14 @@
     @Scripts.Render("~/bundles/modernizr")
 
     @{
-        var UserID = ViewBag.UserID;
+        //var UserID = ViewBag.UserID;
+        var UserID = 3;
     }
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
         <div class="container">
-            @Html.ActionLink("應用程式名稱", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            @Html.ActionLink("簡易看房網站", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="切換導覽" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -24,15 +25,22 @@
                 <ul class="navbar-nav flex-grow-1">
                     <li>@Html.ActionLink("首頁", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
                     @*<li>@Html.ActionLink("關於", "About", "Home", new { area = "" }, new { @class = "nav-link" })</li>
-        <li>@Html.ActionLink("連絡人", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>*@
+                    <li>@Html.ActionLink("連絡人", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>*@
                     <li>@Html.ActionLink("看房", "Index", "Assets", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("紀錄", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    @*<li>@Html.ActionLink("紀錄", "Contact", "Home", new { area = "" }, new { @class = "nav-link" })</li>*@
+                    <li>@Html.ActionLink("紀錄", "Index", "Records", new { area = "" }, new { @class = "nav-link" })</li>
                     <li>@Html.ActionLink("管理", "Index", "Users", new { area = "" }, new { @class = "nav-link" })</li>
                 </ul>
                 <ul class="navbar-nav flex-grow-1">
-                    <li>@Html.ActionLink("登入", "Login", "Users", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li>@Html.ActionLink("註冊", "Create", "Users", new { area = "" }, new { @class = "nav-link" })</li>
-                    <li id="logout">@Html.ActionLink("登出", "Create", "Users", new { area = "" }, new { @class = "nav-link" })</li>
+                    @if (UserID == 0)
+                    {
+                        <li>@Html.ActionLink("登入", "Login", "Users", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("註冊", "Create", "Users", new { area = "" }, new { @class = "nav-link" })</li>
+                    }
+                    else
+                    {
+                        <li id="logout">@Html.ActionLink("登出", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+                    }
                 </ul>
             </div>
         </div>
@@ -48,5 +56,11 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+<script type="text/javascript">
+    function logout() {
+        UserID == 0;
+    }
+</script>
 </body>
 </html>
